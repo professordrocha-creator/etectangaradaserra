@@ -1,0 +1,1311 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre - Etec Tangará da Serra - MT</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+	   :root {
+            --primary: #006cb7;
+            --secondary: #009b3a;
+            --accent: #fedf00;
+            --dark: #333;
+            --light: #f8f9fa;
+            --gray: #6c757d;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: #f5f5f5;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-top {
+            background-color: var(--primary);
+            color: white;
+            padding: 8px 0;
+            font-size: 14px;
+        }
+        
+        .header-top-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .social-icons a {
+            color: white;
+            margin-left: 15px;
+            font-size: 18px;
+        }
+        
+        .header-main {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo {
+            height: 70px;
+            margin-right: 15px;
+        }
+        
+        .school-name {
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        .school-name span {
+            display: block;
+            font-size: 16px;
+            color: var(--gray);
+        }
+        
+        .government-logos {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .government-logo {
+            height: 60px;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 20px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: width 0.3s;
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            font-size: 24px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--primary);
+        }
+        
+        /* Banner */
+        .banner {
+            position: relative;
+            height: 500px;
+            overflow: hidden;
+        }
+        
+        .banner-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+        }
+        
+        .banner-slide.active {
+            opacity: 1;
+        }
+        
+        .banner-content {
+            color: white;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+            max-width: 600px;
+            padding: 30px;
+            background-color: rgba(0,0,0,0.5);
+            border-radius: 8px;
+        }
+        
+        .banner-content h2 {
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+        
+        .banner-content p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #005a9e;
+        }
+        
+        .btn-secondary {
+            background-color: var(--secondary);
+        }
+        
+        .btn-secondary:hover {
+            background-color: #008530;
+        }
+        
+        /* Quick Access */
+        .quick-access {
+            padding: 50px 0;
+            background-color: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 32px;
+            color: var(--primary);
+            display: inline-block;
+            padding-bottom: 10px;
+            position: relative;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--accent);
+        }
+        
+        .quick-access-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+        
+        .quick-access-item {
+            background-color: var(--light);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+            padding: 25px 20px;
+            border-bottom: 4px solid var(--primary);
+        }
+        
+        .quick-access-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .quick-access-icon {
+            font-size: 40px;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .quick-access-item h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        
+        /* News Section */
+        .news-section {
+            padding: 50px 0;
+            background-color: var(--light);
+        }
+        
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        
+        .news-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        
+        .news-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .news-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .news-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .news-card:hover .news-img img {
+            transform: scale(1.05);
+        }
+        
+        .news-content {
+            padding: 20px;
+        }
+        
+        .news-date {
+            color: var(--gray);
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        
+        .news-title {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+        
+        .news-excerpt {
+            color: var(--gray);
+            margin-bottom: 15px;
+        }
+        
+        .read-more {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+        }
+        
+        .read-more i {
+            margin-left: 5px;
+            transition: transform 0.3s;
+        }
+        
+        .read-more:hover i {
+            transform: translateX(5px);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-col h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--accent);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .contact-info {
+            list-style: none;
+        }
+        
+        .contact-info li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .contact-info i {
+            margin-right: 10px;
+            color: var(--accent);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            font-size: 14px;
+            color: #ccc;
+        }
+        
+        .footer-bottom a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+        
+        /* Responsividade */
+        @media (max-width: 992px) {
+            .government-logos {
+                display: none;
+            }
+            
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+            }
+            
+            nav ul.show {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin: 10px 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .banner {
+                height: 400px;
+            }
+            
+            .banner-content h2 {
+                font-size: 28px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-main {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .logo-container {
+                margin-bottom: 15px;
+            }
+            
+            .banner {
+                height: 350px;
+            }
+            
+            .banner-content {
+                text-align: center;
+                margin: 0 auto;
+            }
+            
+            .section-title h2 {
+                font-size: 28px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .banner {
+                height: 300px;
+            }
+            
+            .banner-content h2 {
+                font-size: 24px;
+            }
+            
+            .banner-content p {
+                font-size: 16px;
+            }
+            
+            .school-name {
+                font-size: 18px;
+            }
+            
+            .school-name span {
+                font-size: 14px;
+            }
+        }
+		.banner-slide {
+    background-size: cover;      /* Preenche o espaço sem distorcer */
+    background-position: center; /* Centraliza a imagem */
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100vh;               /* Altura total da tela (opcional) */
+}
+        :root {
+            --primary: #006cb7;
+            --secondary: #009b3a;
+            --accent: #fedf00;
+            --dark: #333;
+            --light: #f8f9fa;
+            --gray: #6c757d;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: #f5f5f5;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-top {
+            background-color: var(--primary);
+            color: white;
+            padding: 8px 0;
+            font-size: 14px;
+        }
+        
+        .header-top-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .social-icons a {
+            color: white;
+            margin-left: 15px;
+            font-size: 18px;
+        }
+        
+        .header-main {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo {
+            height: 70px;
+            margin-right: 15px;
+        }
+        
+        .school-name {
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        .school-name span {
+            display: block;
+            font-size: 16px;
+            color: var(--gray);
+        }
+        
+        .government-logos {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .government-logo {
+            height: 60px;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 20px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: width 0.3s;
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            font-size: 24px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--primary);
+        }
+        
+        /* Page Banner */
+        .page-banner {
+            background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+        }
+        
+        .page-banner-content h1 {
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+        
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+        
+        .breadcrumb li {
+            margin: 0 5px;
+        }
+        
+        .breadcrumb li:not(:last-child)::after {
+            content: "›";
+            margin-left: 10px;
+        }
+        
+        .breadcrumb a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        
+        /* About Section */
+        .about-section {
+            padding: 60px 0;
+            background-color: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 32px;
+            color: var(--primary);
+            display: inline-block;
+            padding-bottom: 10px;
+            position: relative;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--accent);
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+        
+        .about-text h3 {
+            font-size: 24px;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .about-text p {
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+        
+        .about-image img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        /* Mission Vision Values */
+        .mvv-section {
+            padding: 60px 0;
+            background-color: var(--light);
+        }
+        
+        .mvv-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .mvv-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        
+        .mvv-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .mvv-icon {
+            font-size: 40px;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .mvv-card h3 {
+            font-size: 22px;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .mvv-card p {
+            color: var(--gray);
+        }
+        
+        /* History Section */
+        .history-section {
+            padding: 60px 0;
+            background-color: white;
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: var(--primary);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            border: 4px solid var(--primary);
+            border-radius: 50%;
+            top: 15px;
+            right: -13px;
+            z-index: 1;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+        
+        .timeline-item:nth-child(even)::after {
+            left: -13px;
+        }
+        
+        .timeline-content {
+            padding: 20px;
+            background-color: var(--light);
+            border-radius: 6px;
+            position: relative;
+        }
+        
+        .timeline-content h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-col h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--accent);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .contact-info {
+            list-style: none;
+        }
+        
+        .contact-info li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .contact-info i {
+            margin-right: 10px;
+            color: var(--accent);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            font-size: 14px;
+            color: #ccc;
+        }
+        
+        .footer-bottom a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+        
+        /* Responsividade */
+        @media (max-width: 992px) {
+            .government-logos {
+                display: none;
+            }
+            
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+            }
+            
+            nav ul.show {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin: 10px 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+            
+            .timeline-item::after {
+                left: 18px;
+            }
+            
+            .timeline-item:nth-child(even)::after {
+                left: 18px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-main {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .logo-container {
+                margin-bottom: 15px;
+            }
+            
+            .section-title h2 {
+                font-size: 28px;
+            }
+            
+            .page-banner {
+                height: 250px;
+            }
+            
+            .page-banner-content h1 {
+                font-size: 28px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .school-name {
+                font-size: 18px;
+            }
+            
+            .school-name span {
+                font-size: 14px;
+            }
+            
+            .page-banner {
+                height: 200px;
+            }
+            
+            .page-banner-content h1 {
+                font-size: 24px;
+            }
+            
+            .mvv-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+     </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-top">
+            <div class="container header-top-content">
+                <div class="contact-top">
+                  <i class="fas fa-phone"></i> (65)9.9903-1891  | 
+                    <i class="fas fa-envelope"></i> etetangara@secitec.mt.gov.br
+                </div>
+                <div class="social-icons">
+                   
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    
+                </div>
+            </div>
+        </div>
+ <div class="container header-main">
+    <div class="logo-container">
+        <div class="logo">
+            <img src="img/etectga.png" alt="Logo ETEC" class="logo" width="150" height="70" />
+        </div>
+        <div class="school-name">
+            Etec Tangará da Serra
+            <span>Educação que transforma</span>
+        </div>
+    </div>
+
+
+    <nav>
+        <button class="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+        </button>
+        <ul>
+            <li><a href="index.html">Início</a></li>
+           
+          
+        </ul>
+    </nav>
+</div>
+
+    </header>
+
+    <!-- Banner -->
+ <section class="banner">
+    <div class="banner-slide active" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('img/v5.png');">
+        <div class="container">
+          
+        </div>
+    </div>
+
+    <div class="banner-slide" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('img/v4.png');">
+        <div class="container">
+            
+        </div>
+    </div>
+
+    <div class="banner-slide" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('img/v1.png');">
+        <div class="container">
+           
+        </div>
+    </div>
+</section>
+
+    <!-- About Section -->
+    <section class="about-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Quem Somos</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+				 <h3>ETEC Tangará da Serra - MT.</h3>
+                    <h3></h3>
+                    <p>               A Escola Técnica Estadual de Educação Profissional e Tecnológica de Tangará da Serra
+é uma Instituição Pública mantida pelo Governo do Estado de Mato Grosso, por intermédio
+da Secretaria de Estado de Ciência, Tecnologia e Inovação / Seciteci-MT, e tem
+como característica a implementação e execução das políticas da Educação Profissional.</p>
+                    <p>A Escola foi criada pela Lei complementar nº 374 de 15 de dezembro de 2009 e
+tem por objetivo formar e qualificar profissionais nos vários níveis e modalidades
+de ensino, para os diversos setores da economia, realizar pesquisas e desenvolvimento
+de novos processos, produtos e serviços, em estreita articulação com os setores produtivos
+e a sociedade, oferecendo instrumentos para a educação profissional e continuada.</p>
+                   
+                </div>
+			   
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Vision Values -->
+    <section class="mvv-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Missão, Visão e Valores</h2>
+            </div>
+            <div class="mvv-grid">
+                <div class="mvv-card">
+                    <div class="mvv-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3>Missão</h3>
+                    <p>“Possibilitar a formação profissional e tecnológica gratuita e de qualidade à
+comunidade mato-grossense, alicerçada na consciência ética e empreendedora,
+visando inclusão social e inserção do cidadão no mercado de trabalho.</p>
+                </div>
+                <div class="mvv-card">
+                    <div class="mvv-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3>Visão</h3>
+                    <p>“Ser referência na formação de profissionais com consciência ética e
+empreendedora, aptos ao dinamismo do mercado de trabalho para o exercício
+pleno da cidadania</p>
+                </div>
+               
+            </div>
+        </div>
+    </section>
+
+
+    <!-- About Section -->
+    <section class="about-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nossa Escola</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Educação que Transforma</h3>
+                    <p>				A Escola Técnica Estadual de Educação
+Profissional e Tecnológica de Tangará
+da Serra oferta cursos na área de
+Tecnologia de Informação e Gestão e
+Negócios.</p>
+                    <p>A oferta ocorre para estudantes
+do Ensino Médio Técnico, em
+parceria com a Escola Estadual 29 de
+Novembro, e para alunos que estejam
+cursando 2º ano do Ensino Médio em
+outras unidades ou que já tenham
+concluído o Ensino Médio.</p>
+                    <p>Também são ofertados diversos
+cursos livres e de formação inicial
+continuada, de acordo com demandas
+dos arranjos produtivos locais e
+regionais.</p>
+                </div>
+	
+            </div>
+        </div>
+    </section>
+
+    
+
+    <!-- History Section -->
+    <section class="history-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nossa História</h2>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>2006</h3>
+                        <p>Inauguração da ETEC Tangará da Serra (21 de dezembro) vinculada à Seciteci, início das atividades como escola técnica estadual..</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>2024/2025</h3>
+                        <p>Turmas formadas, consolidação de vocação para agronegócio/agropecuária; participação de alunos em projetos de inovação e tecnologia</p>
+                    </div>
+                </div>
+               
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+   <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>Etec Tangará da Serra</h3>
+                    <p>Educação profissional de qualidade para formar cidadãos preparados para os desafios do mercado de trabalho.</p>
+                    <div class="social-icons" style="margin-top: 20px;">
+                       
+                        <a href="https://www.instagram.com/stories/etectangaramt/"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+						 <div class="government-logo">
+            <img src="img/etec.jpeg" alt="Logo ETEC Tangará" class="h-16" width="200" height="100" />
+        </div>
+                        
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Links Rápidos</h3>
+                    <ul class="footer-links">
+                         <li><a href="index.html">Início</a></li>
+            <li><a href="sobre.html">Sobre</a></li>
+            <li><a href="cursos.html">Cursos</a></li>
+            <li><a href="prof.html">Docentes</a></li>
+            <li><a href="gestao.html">Equipe Gestora</a></li>
+            <li><a href="contato.html">Contato</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contato</h3>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> Rua São Paulo, nº 801-E. Bairro Jardim
+Goiás. Mato Crosso Tangará da Serra - MT
+CEP 78.301-046</li>
+                        <li><i class="fas fa-phone"></i> (65)9.9903-1891 (WhatsApp, Secretaria Escolar e
+Coordenação)</li>
+                        <li><i class="fas fa-envelope"></i>etetangara@secitec.mt.gov.br</li>
+                        <li><i class="fas fa-clock"></i> Segunda a Sexta: 07h  às 12h</li>
+						<li><i class="fas fa-clock"></i> Segunda a Sexta: 13h às 18h</li>
+						<li><i class="fas fa-clock"></i> Segunda a Sexta: 18h às 22h</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Etec Tangará da Serra - MT. Todos os direitos reservados.</p>
+                <p>Site desenvolvido em conformidade com a <a href="#">LGPD</a> e políticas de segurança.</p>
+				 <p>Professor Daniel Rocha</p>
+            </div>
+        </div>
+    </footer>
+
+       <script>
+        // Banner rotativo
+        document.addEventListener('DOMContentLoaded', function() {
+            let currentSlide = 0;
+            const slides = document.querySelectorAll('.banner-slide');
+            
+            function showSlide(index) {
+                slides.forEach(slide => slide.classList.remove('active'));
+                slides[index].classList.add('active');
+            }
+            
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % slides.length;
+                showSlide(currentSlide);
+            }
+            
+            // Mudar slide a cada 5 segundos
+            setInterval(nextSlide, 5000);
+            
+            // Menu mobile
+            const menuBtn = document.querySelector('.mobile-menu-btn');
+            const navMenu = document.querySelector('nav ul');
+            
+            menuBtn.addEventListener('click', function() {
+                navMenu.classList.toggle('show');
+            });
+        });
+    </script>
+</body>
+</html>

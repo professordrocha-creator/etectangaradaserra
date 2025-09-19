@@ -1,0 +1,1696 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cursos - Etec Tangará da Serra - MT</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+	
+	    :root {
+            --primary: #006cb7;
+            --secondary: #009b3a;
+            --accent: #fedf00;
+            --dark: #333;
+            --light: #f8f9fa;
+            --gray: #6c757d;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: #f5f5f5;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-top {
+            background-color: var(--primary);
+            color: white;
+            padding: 8px 0;
+            font-size: 14px;
+        }
+        
+        .header-top-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .social-icons a {
+            color: white;
+            margin-left: 15px;
+            font-size: 18px;
+        }
+        
+        .header-main {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo {
+            height: 70px;
+            margin-right: 15px;
+        }
+        
+        .school-name {
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        .school-name span {
+            display: block;
+            font-size: 16px;
+            color: var(--gray);
+        }
+        
+        .government-logos {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .government-logo {
+            height: 60px;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 20px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: width 0.3s;
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            font-size: 24px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--primary);
+        }
+        
+        /* Banner */
+        .banner {
+            position: relative;
+            height: 500px;
+            overflow: hidden;
+        }
+        
+        .banner-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+        }
+        
+        .banner-slide.active {
+            opacity: 1;
+        }
+        
+        .banner-content {
+            color: white;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+            max-width: 600px;
+            padding: 30px;
+            background-color: rgba(0,0,0,0.5);
+            border-radius: 8px;
+        }
+        
+        .banner-content h2 {
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+        
+        .banner-content p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #005a9e;
+        }
+        
+        .btn-secondary {
+            background-color: var(--secondary);
+        }
+        
+        .btn-secondary:hover {
+            background-color: #008530;
+        }
+        
+        /* Quick Access */
+        .quick-access {
+            padding: 50px 0;
+            background-color: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 32px;
+            color: var(--primary);
+            display: inline-block;
+            padding-bottom: 10px;
+            position: relative;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--accent);
+        }
+        
+        .quick-access-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+        
+        .quick-access-item {
+            background-color: var(--light);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+            padding: 25px 20px;
+            border-bottom: 4px solid var(--primary);
+        }
+        
+        .quick-access-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .quick-access-icon {
+            font-size: 40px;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .quick-access-item h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        
+        /* News Section */
+        .news-section {
+            padding: 50px 0;
+            background-color: var(--light);
+        }
+        
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        
+        .news-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        
+        .news-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .news-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .news-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .news-card:hover .news-img img {
+            transform: scale(1.05);
+        }
+        
+        .news-content {
+            padding: 20px;
+        }
+        
+        .news-date {
+            color: var(--gray);
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        
+        .news-title {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+        
+        .news-excerpt {
+            color: var(--gray);
+            margin-bottom: 15px;
+        }
+        
+        .read-more {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+        }
+        
+        .read-more i {
+            margin-left: 5px;
+            transition: transform 0.3s;
+        }
+        
+        .read-more:hover i {
+            transform: translateX(5px);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-col h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--accent);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .contact-info {
+            list-style: none;
+        }
+        
+        .contact-info li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .contact-info i {
+            margin-right: 10px;
+            color: var(--accent);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            font-size: 14px;
+            color: #ccc;
+        }
+        
+        .footer-bottom a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+        
+        /* Responsividade */
+        @media (max-width: 992px) {
+            .government-logos {
+                display: none;
+            }
+            
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+            }
+            
+            nav ul.show {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin: 10px 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .banner {
+                height: 400px;
+            }
+            
+            .banner-content h2 {
+                font-size: 28px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-main {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .logo-container {
+                margin-bottom: 15px;
+            }
+            
+            .banner {
+                height: 350px;
+            }
+            
+            .banner-content {
+                text-align: center;
+                margin: 0 auto;
+            }
+            
+            .section-title h2 {
+                font-size: 28px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .banner {
+                height: 300px;
+            }
+            
+            .banner-content h2 {
+                font-size: 24px;
+            }
+            
+            .banner-content p {
+                font-size: 16px;
+            }
+            
+            .school-name {
+                font-size: 18px;
+            }
+            
+            .school-name span {
+                font-size: 14px;
+            }
+        }
+		.banner-slide {
+    background-size: cover;      /* Preenche o espaço sem distorcer */
+    background-position: center; /* Centraliza a imagem */
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100vh;               /* Altura total da tela (opcional) */
+}
+	
+	
+        :root {
+            --primary: #006cb7;
+            --secondary: #009b3a;
+            --accent: #fedf00;
+            --dark: #333;
+            --light: #f8f9fa;
+            --gray: #6c757d;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: #f5f5f5;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-top {
+            background-color: var(--primary);
+            color: white;
+            padding: 8px 0;
+            font-size: 14px;
+        }
+        
+        .header-top-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .social-icons a {
+            color: white;
+            margin-left: 15px;
+            font-size: 18px;
+        }
+        
+        .header-main {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo {
+            height: 70px;
+            margin-right: 15px;
+        }
+        
+        .school-name {
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        .school-name span {
+            display: block;
+            font-size: 16px;
+            color: var(--gray);
+        }
+        
+        .government-logos {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .government-logo {
+            height: 60px;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 20px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: width 0.3s;
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            font-size: 24px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--primary);
+        }
+        
+        /* Page Banner */
+        .page-banner {
+            background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+        }
+        
+        .page-banner-content h1 {
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+        
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+        
+        .breadcrumb li {
+            margin: 0 5px;
+        }
+        
+        .breadcrumb li:not(:last-child)::after {
+            content: "›";
+            margin-left: 10px;
+        }
+        
+        .breadcrumb a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Courses Section */
+        .courses-section {
+            padding: 60px 0;
+            background-color: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 32px;
+            color: var(--primary);
+            display: inline-block;
+            padding-bottom: 10px;
+            position: relative;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--accent);
+        }
+        
+        .courses-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 50px;
+            color: var(--gray);
+        }
+        
+        .courses-filter {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .filter-btn {
+            padding: 8px 20px;
+            background-color: var(--light);
+            border: 1px solid #ddd;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .filter-btn.active, .filter-btn:hover {
+            background-color: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+        
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .course-card {
+            background-color: var(--light);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        
+        .course-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .course-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .course-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .course-card:hover .course-image img {
+            transform: scale(1.05);
+        }
+        
+        .course-content {
+            padding: 25px;
+        }
+        
+        .course-category {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            margin-bottom: 15px;
+        }
+        
+        .course-title {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+        
+        .course-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-size: 14px;
+            color: var(--gray);
+        }
+        
+        .course-info span {
+            display: flex;
+            align-items: center;
+        }
+        
+        .course-info i {
+            margin-right: 5px;
+            color: var(--primary);
+        }
+        
+        .course-description {
+            color: var(--gray);
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+        
+        .course-actions {
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: background-color 0.3s;
+            font-size: 14px;
+        }
+        
+        .btn:hover {
+            background-color: #005a9e;
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 1px solid var(--primary);
+            color: var(--primary);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        /* How to Apply Section */
+        .apply-section {
+            padding: 60px 0;
+            background-color: var(--light);
+        }
+        
+        .apply-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            align-items: center;
+        }
+        
+        .apply-text h2 {
+            font-size: 28px;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .apply-text p {
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+        
+        .apply-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+        }
+        
+        .step-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-weight: bold;
+        }
+        
+        .step-card h3 {
+            font-size: 16px;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+        
+        .step-card p {
+            font-size: 14px;
+            color: var(--gray);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-col h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--accent);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .contact-info {
+            list-style: none;
+        }
+        
+        .contact-info li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .contact-info i {
+            margin-right: 10px;
+            color: var(--accent);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            font-size: 14px;
+            color: #ccc;
+        }
+        
+        .footer-bottom a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+        
+        /* Responsividade */
+        @media (max-width: 992px) {
+            .government-logos {
+                display: none;
+            }
+            
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+            }
+            
+            nav ul.show {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin: 10px 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .courses-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-main {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .logo-container {
+                margin-bottom: 15px;
+            }
+            
+            .section-title h2 {
+                font-size: 28px;
+            }
+            
+            .page-banner {
+                height: 250px;
+            }
+            
+            .page-banner-content h1 {
+                font-size: 28px;
+            }
+            
+            .apply-content {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .school-name {
+                font-size: 18px;
+            }
+            
+            .school-name span {
+                font-size: 14px;
+            }
+            
+            .page-banner {
+                height: 200px;
+            }
+            
+            .page-banner-content h1 {
+                font-size: 24px;
+            }
+            
+            .courses-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .course-actions {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-top">
+            <div class="container header-top-content">
+                <div class="contact-top">
+                    <i class="fas fa-phone"></i> (65)9.9903-1891  | 
+                    <i class="fas fa-envelope"></i> etetangara@secitec.mt.gov.br
+                </div>
+                <div class="social-icons">
+                   
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    
+                </div>
+            </div>
+        </div>
+ <div class="container header-main">
+    <div class="logo-container">
+        <div class="logo">
+            <img src="img/etectga.png" alt="Logo ETEC" class="logo" width="150" height="70" />
+        </div>
+        <div class="school-name">
+            Etec Tangará da Serra
+            <span>Educação que transforma</span>
+        </div>
+    </div>
+
+
+    <nav>
+        <button class="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+        </button>
+        <ul>
+            <li><a href="index.html">Início</a></li>
+           
+        </ul>
+    </nav>
+</div>
+
+    </header>
+
+    <!-- Banner -->
+ <section class="banner">
+    <div class="banner-slide active" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('img/v5.png');">
+        <div class="container">
+          
+        </div>
+    </div>
+
+    <div class="banner-slide" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('img/v4.png');">
+        <div class="container">
+            
+        </div>
+    </div>
+
+    <div class="banner-slide" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('img/v1.png');">
+        <div class="container">
+           
+        </div>
+    </div>
+</section>
+
+    <!-- Courses Section -->
+    <section class="courses-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Cursos Em Andamento 2025</h2>
+				
+            </div>
+            
+            <div class="courses-intro">
+                <p>A Etec Tangará da Serra oferece cursos técnicos de qualidade, com professores qualificados e infraestrutura moderna. Nossos cursos são desenvolvidos para preparar os estudantes para o mercado de trabalho, com enfoque prático e atualizado.</p>
+            </div>
+            
+            <div class="courses-filter">
+                <button class="filter-btn active" data-filter="all">Todos os Cursos</button>
+                <button class="filter-btn" data-filter="tecnologia">Tecnologia</button>
+              
+                <button class="filter-btn" data-filter="gestao">Gestão</button>
+                <button class="filter-btn" data-filter="agro">Agro</button>
+				 <button class="filter-btn" data-filter="fic">Fic</button>
+            </div>
+            
+            <div class="courses-grid">
+                
+			
+                
+                <div class="course-card" data-category="tecnologia">
+                    <div class="course-image">
+                          <img src="img/info.png" alt="Logo ETEC" class="logo" width="150" height="70" />
+                    </div>
+                    <div class="course-content">
+                        <span class="course-category">Tecnologia</span>
+                        <h3 class="course-title">Técnico em Informática</h3>
+                        <div class="course-info">
+                            <span><i class="far fa-clock"></i> </span>
+                            <span><i class="far fa-calendar-alt"></i> </span>
+                            <span><i class="fas fa-user-graduate"></i> </span>
+                        </div>
+                        <h3> Matutino</h3>
+                        <div class="course-actions">
+                            <a href="contato.html" class="btn">Mais Informações</a>
+                            
+                        </div>
+                    </div>
+                </div>
+               
+                	 <div class="course-card" data-category="agro">
+                    <div class="course-image">
+                        <img src="img/agricultura.png" alt="Logo ETEC" class="logo" width="150" height="70" />
+                    </div>
+                    <div class="course-content">
+                        <span class="course-category">Agricultura</span>
+                        <h3 class="course-title">Técnico em Agricultura</h3>
+						
+                        <div class="course-info">
+                            <span><i class="far fa-clock"></i> </span>
+                            <span><i class="far fa-calendar-alt"></i> </span>
+                            <span><i class="fas fa-user-graduate"></i></span>
+                        </div>
+						
+						<h3> Matutino</h3>
+                       
+                        <div class="course-actions">
+                            <a href="contato.html" class="btn">Mais Informações</a>
+                            
+                        </div>
+                    </div>
+                </div>
+				
+                <div class="course-card" data-category="agro">
+                    <div class="course-image">
+                        <img src="img/Agroneg.jpg" alt="Logo ETEC" class="logo" width="150" height="70" />
+                    </div>
+                    <div class="course-content">
+                        <span class="course-category">Agronegócio</span>
+                        <h3 class="course-title">Técnico em Agronegócio</h3>
+                        <div class="course-info">
+                            <span><i class="far fa-clock"></i> </span>
+                            <span><i class="far fa-calendar-alt"></i> </span>
+                            <span><i class="fas fa-user-graduate"></i> </span>
+                        </div>
+                        <h3> Matutino</h3>
+                        <div class="course-actions">
+                            <a href="contato.html" class="btn">Mais Informações</a>
+                            
+                        </div>
+                    </div>
+                </div>
+                
+                
+				
+                
+                <div class="course-card" data-category="gestao">
+                    <div class="course-image">
+                        <img src="img/logistica.jpg" alt="Logo ETEC" class="logo" width="150" height="70" />
+                    </div>
+                    <div class="course-content">
+                        <span class="course-category">Logística</span>
+                        <h3 class="course-title">Técnico Logística</h3>
+                        <div class="course-info">
+                            <span><i class="far fa-clock"></i> </span>
+                            <span><i class="far fa-calendar-alt"></i> </span>
+                            <span><i class="fas fa-user-graduate"></i> </span>
+                        </div>
+                        <h3> Matutino</h3>
+                        <div class="course-actions">
+                            <a href="contato.html" class="btn">Mais Informações</a>
+                            
+                        </div>
+                    </div>
+                </div>
+                
+				
+				   <div class="course-card" data-category="agro">
+                    <div class="course-image">
+                        <img src="img/Agroneg.jpg" alt="Logo ETEC" class="logo" width="150" height="70" />
+                    </div>
+                    <div class="course-content">
+                        <span class="course-category">Agronegócio</span>
+                        <h3 class="course-title">Técnico em Agronegócio</h3>
+                        <div class="course-info">
+                            <span><i class="far fa-clock"></i> </span>
+                            <span><i class="far fa-calendar-alt"></i> </span>
+                            <span><i class="fas fa-user-graduate"></i> </span>
+                        </div>
+                        <h3>Vespertino</h3>
+                        <div class="course-actions">
+                            <a href="contato.html" class="btn">Mais Informações</a>
+                            
+                        </div>
+                    </div>
+                </div>
+				
+				
+				 <div class="course-card" data-category="agro">
+                    <div class="course-image">
+                        <img src="img/agricultura.png" alt="Logo ETEC" class="logo" width="150" height="70" />
+                    </div>
+                    <div class="course-content">
+                        <span class="course-category">Agricultura</span>
+                        <h3 class="course-title">Técnico em Agricultura</h3>
+						
+                        <div class="course-info">
+                            <span><i class="far fa-clock"></i> </span>
+                            <span><i class="far fa-calendar-alt"></i> </span>
+                            <span><i class="fas fa-user-graduate"></i></span>
+                        </div>
+						
+						<h3>Vespertino</h3>
+                       
+                        <div class="course-actions">
+                            <a href="contato.html" class="btn">Mais Informações</a>
+                            
+                        </div>
+                    </div>
+                </div>
+				
+				 <div class="course-card" data-category="agro">
+                    <div class="course-image">
+                        <img src="img/agricultura.png" alt="Logo ETEC" class="logo" width="150" height="70" />
+                    </div>
+                    <div class="course-content">
+                        <span class="course-category">Agricultura</span>
+                        <h3 class="course-title">Técnico em Agricultura</h3>
+						
+                        <div class="course-info">
+                            <span><i class="far fa-clock"></i> </span>
+                            <span><i class="far fa-calendar-alt"></i> </span>
+                            <span><i class="fas fa-user-graduate"></i></span>
+                        </div>
+						
+						<h3>Nortuno</h3>
+                       
+                        <div class="course-actions">
+                            <a href="contato.html" class="btn">Mais Informações</a>
+                            
+                        </div>
+                    </div>
+                </div>
+				
+				   <div class="course-card" data-category="gestao">
+                    <div class="course-image">
+                        <img src="img/adm.png" alt="Logo ETEC" class="logo" width="150" height="70" />
+                    </div>
+                    <div class="course-content">
+                        <span class="course-category">Administração</span>
+                        <h3 class="course-title">Técnico em Administração       </h3>
+						
+                        <div class="course-info">
+						
+                            <span><i class="far fa-clock"></i> </span>
+                            <span><i class="far fa-calendar-alt"></i> </span>
+                            <span><i class="fas fa-user-graduate"></i> </span>
+                        </div>
+                        <h3>Nortuno</h3>
+                        <div class="course-actions">
+                            <a href="contato.html" class="btn">Mais Informações</a>
+                            
+                        </div>
+                    </div>
+                </div>
+				
+				
+				
+                <div class="course-card" data-category="fic">
+                    <div class="course-image">
+                        <img src="img/cuidador.jpg" alt="Logo ETEC" class="logo" width="150" height="70" />
+                    </div>
+                    <div class="course-content">
+                        <span class="course-category">Cuidador de Idoso</span>
+                        <h3 class="course-title">Cuidador de Idoso</h3>
+                        <div class="course-info">
+                            <span><i class="far fa-clock"></i> </span>
+                            <span><i class="far fa-calendar-alt"></i></span>
+                            <span><i class="fas fa-user-graduate"></i> </span>
+                        </div>
+                         <h3>Nortuno</h3>
+                        <div class="course-actions">
+                            <a href="contato.html" class="btn">Mais Informações</a>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+	
+	
+			
+				
+               
+            </div>
+        </div>
+    </section>
+	<!--xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-->
+	<section class="courses-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Cursos Em 2026</h2>
+				
+            </div>
+            
+            <div class="courses-intro">
+                <p>A Etec Tangará da Serra oferece cursos técnicos de qualidade, com professores qualificados e infraestrutura moderna. Nossos cursos são desenvolvidos para preparar os estudantes para o mercado de trabalho, com enfoque prático e atualizado.</p>
+            </div>
+            
+            <div class="courses-filter">
+                <button class="filter-btn active" data-filter="all">Todos os Cursos</button>
+                <button class="filter-btn" data-filter="tecnologia">Tecnologia</button>
+                <button class="filter-btn" data-filter="seguranca">Segurança no Trabalho</button>
+                <button class="filter-btn" data-filter="gestao">Gestão</button>
+                <button class="filter-btn" data-filter="agro">Agro</button>
+            </div>
+            
+            <div class="courses-grid">
+                <div class="course-card" data-category="tecnologia">
+                    <div class="course-image">
+                         <img src="img/sistema.jpg" alt="Logo ETEC" class="logo" width="150" height="70" />
+                    </div>
+                    <div class="course-content">
+                        <span class="course-category">Tecnologia</span>
+                        <h3 class="course-title">Técnico Desenvolvimento de Sistemas</h3>
+                        <div class="course-info">
+                            <span><i class="far fa-clock"></i> </span>
+                            <span><i class="far fa-calendar-alt"></i> </span>
+                            <span><i class="fas fa-user-graduate"></i> </span>
+                        </div>
+                        
+                        <div class="course-actions">
+                            <a href="sistemas.html" class="btn">Mais Informações</a>
+                            
+                        </div>
+                    </div>
+                </div>
+             
+                
+                <div class="course-card" data-category="seguranca">
+                    <div class="course-image">
+                        <img src="img/segu.jpg" alt="Logo ETEC" class="logo" width="150" height="70" />
+                    </div>
+                    <div class="course-content">
+                        <span class="course-category">Segurança no Trabalho</span>
+                        <h3 class="course-title">Técnico Segurança no Trabalho</h3>
+						
+                        <div class="course-info">
+                            <span><i class="far fa-clock"></i> </span>
+                            <span><i class="far fa-calendar-alt"></i> </span>
+                            <span><i class="fas fa-user-graduate"></i> </span>
+                        </div>
+                        
+                        <div class="course-actions">
+                            <a href="contato.html" class="btn">Mais Informações</a>
+                            
+                        </div>
+                    </div>
+                </div>
+				
+                
+                <div class="course-card" data-category="gestao">
+                    <div class="course-image">
+                        <img src="img/adm.png" alt="Logo ETEC" class="logo" width="150" height="70" />
+                    </div>
+                    <div class="course-content">
+                        <span class="course-category">Administração</span>
+                        <h3 class="course-title">Técnico em Administração       </h3>
+						
+                        <div class="course-info">
+						<br></br>
+                            <span><i class="far fa-clock"></i> </span>
+                            <span><i class="far fa-calendar-alt"></i> </span>
+                            <span><i class="fas fa-user-graduate"></i> </span>
+                        </div>
+                        
+                        <div class="course-actions">
+                            <a href="contato.html" class="btn">Mais Informações</a>
+                            
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="course-card" data-category="agro">
+                    <div class="course-image">
+                        <img src="img/Agroneg.jpg" alt="Logo ETEC" class="logo" width="150" height="70" />
+                    </div>
+                    <div class="course-content">
+                        <span class="course-category">Agronegócio</span>
+                        <h3 class="course-title">Técnico em Agronegócio</h3>
+                        <div class="course-info">
+                            <span><i class="far fa-clock"></i> </span>
+                            <span><i class="far fa-calendar-alt"></i> </span>
+                            <span><i class="fas fa-user-graduate"></i> </span>
+                        </div>
+                        
+                        <div class="course-actions">
+                            <a href="contato.html" class="btn">Mais Informações</a>
+                            
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="course-card" data-category="agro">
+                    <div class="course-image">
+                        <img src="img/agrope.png" alt="Logo ETEC" class="logo" width="150" height="70" />
+                    </div>
+                    <div class="course-content">
+                        <span class="course-category">Agropecuária</span>
+                        <h3 class="course-title">Técnico em Agropecuária</h3>
+                        <div class="course-info">
+                            <span><i class="far fa-clock"></i> </span>
+                            <span><i class="far fa-calendar-alt"></i> </span>
+                            <span><i class="fas fa-user-graduate"></i></span>
+                        </div>
+                       
+                        <div class="course-actions">
+                            <a href="contato.html" class="btn">Mais Informações</a>
+                            
+                        </div>
+                    </div>
+                </div>
+				
+				
+				 <div class="course-card" data-category="agro">
+                    <div class="course-image">
+                        <img src="img/agricultura.png" alt="Logo ETEC" class="logo" width="150" height="70" />
+                    </div>
+                    <div class="course-content">
+                        <span class="course-category">Agricultura</span>
+                        <h3 class="course-title">Técnico em Agricultura</h3>
+                        <div class="course-info">
+                            <span><i class="far fa-clock"></i> </span>
+                            <span><i class="far fa-calendar-alt"></i> </span>
+                            <span><i class="fas fa-user-graduate"></i></span>
+                        </div>
+                       
+                        <div class="course-actions">
+                            <a href="contato.html" class="btn">Mais Informações</a>
+                            
+                        </div>
+                    </div>
+                </div>
+				
+            </div>
+        </div>
+    </section>
+	
+	
+			
+				
+               
+            </div>
+        </div>
+    </section>
+	
+	
+
+
+    <!-- How to Apply Section -->
+    <section class="apply-section">
+        <div class="container">
+            <div class="apply-content">
+                <div class="apply-text">
+                    <h2>Como se Inscrever</h2>
+                    <p>As inscrições para nossos cursos técnicos são realizadas através de processo seletivo semestral. Confira abaixo as etapas para se inscrever:</p>
+                    <p>Para mais informações sobre editais, datas e documentação necessária, entre em contato conosco.</p>
+                    <a href="contato.html" class="btn">Entre em Contato</a>
+                </div>
+                <div class="apply-steps">
+                    <div class="step-card">
+                        <div class="step-number">1</div>
+                        <h3>Inscrição</h3>
+                        <p>Preencha o formulário online durante o período de inscrições</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">2</div>
+                        <h3>Documentação</h3>
+                        <p>Envie os documentos necessários para a secretaria</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">3</div>
+                        <h3>Seleção</h3>
+                        <p>Processo de análise de documentos e classificação</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">4</div>
+                        <h3>Matrícula</h3>
+                        <p>Efetive sua matrícula no prazo estabelecido</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+        <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>Etec Tangará da Serra</h3>
+                    <p>Educação profissional de qualidade para formar cidadãos preparados para os desafios do mercado de trabalho.</p>
+                    <div class="social-icons" style="margin-top: 20px;">
+                       
+                        <a href="https://www.instagram.com/stories/etectangaramt/"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+						 <div class="government-logo">
+            <img src="img/etec.jpeg" alt="Logo ETEC Tangará" class="h-16" width="200" height="100" />
+        </div>
+                        
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Links Rápidos</h3>
+                    <ul class="footer-links">
+                         <li><a href="index.html">Início</a></li>
+            <li><a href="sobre.html">Sobre</a></li>
+            <li><a href="cursos.html">Cursos</a></li>
+            <li><a href="prof.html">Docentes</a></li>
+            <li><a href="gestao.html">Equipe Gestora</a></li>
+            <li><a href="contato.html">Contato</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contato</h3>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> Rua São Paulo, nº 801-E. Bairro Jardim
+Goiás. Mato Crosso Tangará da Serra - MT
+CEP 78.301-046</li>
+                        <li><i class="fas fa-phone"></i> (65)9.9903-1891 (WhatsApp, Secretaria Escolar e
+Coordenação)</li>
+                        <li><i class="fas fa-envelope"></i>etetangara@secitec.mt.gov.br</li>
+                        <li><i class="fas fa-clock"></i> Segunda a Sexta: 07h  às 12h</li>
+						<li><i class="fas fa-clock"></i> Segunda a Sexta: 13h às 18h</li>
+						<li><i class="fas fa-clock"></i> Segunda a Sexta: 18h às 22h</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Etec Tangará da Serra - MT. Todos os direitos reservados.</p>
+                <p>Site desenvolvido em conformidade com a <a href="#">LGPD</a> e políticas de segurança.</p>
+				 <p>Professor Daniel Rocha</p>
+            </div>
+        </div>
+    </footer>
+    <script>
+        // Menu mobile
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuBtn = document.querySelector('.mobile-menu-btn');
+            const navMenu = document.querySelector('nav ul');
+            
+            menuBtn.addEventListener('click', function() {
+                navMenu.classList.toggle('show');
+            });
+            
+            // Filtro de cursos
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const courseCards = document.querySelectorAll('.course-card');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Remove a classe active de todos os botões
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    // Adiciona a classe active ao botão clicado
+                    button.classList.add('active');
+                    
+                    const filter = button.getAttribute('data-filter');
+                    
+                    courseCards.forEach(card => {
+                        if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
